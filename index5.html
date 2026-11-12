@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 5: Câu 5</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+        }
+
+        /* Bảng trụ cột hòa hợp */
+        .pillar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .pillar-table th, .pillar-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .pillar-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .pillar-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 5: TIỂU KINH RỪNG SỪNG BÒ (CŪḶAGOSIṄGASUTTA, MN 31)</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Trình bày nội dung chính của Tiểu kinh Rừng Sừng Bò (MN 31). Phân tích những yếu tố làm nên đời sống hòa hợp, thanh tịnh và an lạc của các vị Tỳ-kheo. Rút ra những bài học có giá trị đối với việc xây dựng đời sống cộng trú và tu học trong Tăng đoàn hiện nay.</p>
+            </div>
+
+            <h4 class="section-title">I. Bối Cảnh & Nội Dung Chính</h4>
+            <ul>
+                <li><strong>Địa điểm:</strong> Rừng Gosiṅga (rừng cây Xa-la có lá hình sừng bò), gần trú xứ Nādikā, xứ Vajjī.</li>
+                <li><strong>Nhân vật:</strong> Đức Phật một mình đến thăm 3 Tỳ-kheo xuất thân dòng Thích-ca đang ẩn tu chung: Tôn giả <strong>Anuruddha (A-na-luật)</strong>, <strong>Nandiya</strong> và <strong>Kimbila</strong>.</li>
+                <li><strong>Cuộc thăm hỏi nhân văn:</strong> Đức Phật hỏi thăm sức khỏe, đời sống sinh hoạt, việc đi khất thực và nếp sống hòa hợp "như nước với sữa", nhìn nhau bằng ánh mắt thiện cảm.</li>
+                <li><strong>Trình bày nếp sống & Tu chứng:</strong> Ba Tôn giả sống từ bỏ cái tôi riêng, tự giác phục vụ khất thực, gánh nước (ra hiệu bằng tay, không gây tiếng động), bảo vệ môi sinh và cứ 5 ngày cùng nhau thức trọn đêm đàm luận Chánh pháp. Các ngài lằn lượt chứng từ Bốn thiền Sắc giới, Bốn thiền Vô sắc giới đến <strong>Diệt thọ tưởng định</strong>.</li>
+            </ul>
+
+            <div class="quote-box">
+                "Tuy khác thân nhưng đồng một tâm... Ta hãy từ bỏ tâm của ta và sống thuận theo tâm của những tôn giả này."
+            </div>
+
+            <h4 class="section-title">II. Phân Tích 3 Trụ Cột Làm Nên Đời Sống Hòa Hợp & Thanh Tịnh</h4>
+            <table class="pillar-table">
+                <thead>
+                    <tr>
+                        <th>Trụ Cột</th>
+                        <th>Nội Dung Cốt Lõi</th>
+                        <th>Biểu Hiện Thực Tế</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Nền tảng tâm linh & Buông xả tự ngã</strong><br>(Hòa hợp về Ý)</td>
+                        <td>Từ tâm biến mãn nơi 3 nghiệp; Diệt trừ bản ngã vị kỷ để hòa nhập cái ta chung.</td>
+                        <td>Khởi thân/khẩu/ý hành từ trước mặt lẫn sau lưng; nhìn nhau bằng ánh mắt thiện cảm, trân quý pháp lữ.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tinh thần trách nhiệm & Tương trợ âm thầm</strong><br>(Hòa hợp Thân & Khẩu)</td>
+                        <td>Tự giác phục vụ công việc chung; tương trợ tế nhị, vô tranh; ý thức bảo vệ môi sinh.</td>
+                        <td>Người về trước trải chỗ ngồi, chuẩn bị nước; người về sau ăn thức ăn thừa, dọn dẹp; gánh nước nặng thì <strong>dùng tay ra hiệu</strong> (không la hét); đổ thức ăn thừa nơi không có cỏ xanh và côn trùng.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Định tuệ giải thoát</strong><br>(Thanh tịnh nội tâm)</td>
+                        <td>Thành tựu thiền định và tuệ quán cao sâu. Sự hòa hợp bên ngoài bắt nguồn từ vắng lặng phiền não bên trong.</td>
+                        <td>Chứng an trú từ Sơ thiền đến Diệt thọ tưởng định; tâm không còn mầm mống tham, sân, tật đố hay tranh chấp.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">III. Bài Học Giá Trị Cho Tăng Đoàn & Đời Sống Cộng Trú Hiện Nay</h4>
+            <ul>
+                <li><strong>Nghệ thuật sống chung:</strong> Bớt ngã chấp, lắng nghe và tôn trọng đại chúng; thể hiện tình pháp lữ bằng hành động cụ thể, ái ngữ trước mặt cũng như sau lưng.</li>
+                <li><strong>Phụng sự tự giác và tế nhị:</strong> Nêu cao ý thức tự giác làm việc chúng (quét dọn, giữ gìn cảnh quan) mà không tị nạnh; giữ không gian thanh tịnh chốn thiền môn.</li>
+                <li><strong>Gắn kết hòa hợp với mục tiêu tu học:</strong> Duy trì các thời khóa đàm luận đạo pháp, sách tấn nhau hành trì Giới – Định – Tuệ; tránh sa đà vào câu chuyện thế sự thị phi.</li>
+                <li><strong>Trách nhiệm người lãnh đạo:</strong> Học tập Đức Phật về sự sâu sát, quan tâm từ bữa ăn, sức khỏe đến sự tiến bộ tâm linh của chúng Tăng.</li>
+                <li><strong>Ý thức bảo vệ môi trường:</strong> Thực hành lối sống xanh, tiết kiệm tài nguyên, giữ gìn môi sinh sinh thái xung quanh tu viện.</li>
+            </ul>
+
+            <h4 class="section-title">IV. Đúc Kết</h4>
+            <p>Hình ảnh ba vị Tỳ-kheo sống <em>"tuy khác thân nhưng đồng một tâm"</em>, hòa quyện <em>"như nước với sữa"</em> trong Rừng Sừng Bò mãi mãi là kim chỉ nam cho sự tồn vong, hưng thịnh và hòa hợp của Tăng đoàn Phật giáo.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 4')">❮ Trang trước (Câu 4)</button>
+            <button class="btn" onclick="alert('Hãy nhắn tiếp để mình tạo Trang 6 (Câu 6) cho bạn nhé!')">Trang tiếp theo (Câu 6) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

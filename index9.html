@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 9: Câu 9</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(239, 68, 68, 0.12);
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #fca5a5;
+        }
+
+        /* Bảng phân tích lý do khiển trách */
+        .reprimand-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .reprimand-table th, .reprimand-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .reprimand-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .reprimand-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 9: KHIỂN TRÁCH TRƯỜNG HỢP NHẬN THỨC HOẶC TRÌNH BÀY SAI LỆCH GIÁO PHÁP</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Trong Kinh Trung Bộ, Đức Phật có những trường hợp khiển trách các vị Tỳ-kheo vì nhận thức hoặc trình bày sai lệch giáo pháp. Hãy nêu một trường hợp tiêu biểu, xác định tên bài kinh, trình bày nội dung nhận thức sai lầm của vị Tỳ-kheo và phân tích lý do Đức Phật khiển trách. Qua đó, rút ra bài học về thái độ học pháp, trách nhiệm đối với lời nói và sự trung thực trong việc truyền đạt Chánh pháp.</p>
+            </div>
+
+            <h4 class="section-title">I. Bài Kinh Tiêu Biểu & Bối Cảnh Duyên Khởi</h4>
+            <ul>
+                <li><strong>Tên bài kinh:</strong> <em>Đại kinh Nghiệp phân biệt (Mahākammavibhaṅga Sutta, MN 136)</em>.</li>
+                <li><strong>Đối tượng bị khiển trách:</strong> Tôn giả Samiddhi (vị Tỳ-kheo trẻ tuổi).</li>
+                <li><strong>Bối cảnh:</strong> Du sĩ ngoại đạo Potaliputta hỏi Tôn giả Samiddhi về quan điểm của Đức Phật đối với hành động (thân, khẩu, ý) và cảm thọ. Samiddhi đại diện Phật pháp phát ngôn một cách máy móc, nông nổi: <em>"Thưa Hiền giả, cố ý tạo tác hành động thời có cảm thọ đau khổ (khổ thọ)"</em>. Sự việc sau đó được Tôn giả Ānanda trình lên Đức Thế Tôn.</li>
+            </ul>
+
+            <h4 class="section-title">II. Bản Chất Của Nhận Thức Sai Lầm</h4>
+            <ul>
+                <li><strong>Đơn giản hóa, cơ giới hóa giáo lý nghiệp:</strong> Đồng nhất mọi hành vi cố ý đều dẫn tới khổ thọ; ngộ nhận rằng hễ gieo nghiệp là nhận quả đau khổ ngay.</li>
+                <li><strong>Bỏ quên tính đa dạng của cảm thọ:</strong> Phớt lờ lời dạy căn bản rằng hành vi có tư tâm sở (cetanā) tùy thiện, bất thiện hay vô ký mà chiêu cảm 3 loại thọ: <em>lạc thọ, khổ thọ, hoặc bất khổ bất lạc thọ</em>.</li>
+                <li><strong>Rơi vào bẫy tà kiến ngoại đạo:</strong> Vô tình củng cố quan điểm của phái khổ hạnh cực đoan (Nigaṇṭha) cho rằng mọi cảm thọ hiện tại đều là đau khổ và phải dùng khổ hạnh để triệt tiêu nghiệp.</li>
+            </ul>
+
+            <div class="quote-box">
+                "Này Ānanda, Ta chưa từng biết vị Tỳ-kheo Samiddhi này... Thật là một kẻ ngu si, trống rỗng, đã trả lời một cách phân biệt cho một câu hỏi cần phải được phân tích cặn kẽ!" — Lời Đức Phật quở trách Tôn giả Samiddhi.
+            </div>
+
+            <h4 class="section-title">III. Phân Tích Các Lý Do Đức Phật Nghiêm Khắc Khiển Trách</h4>
+            <table class="reprimand-table">
+                <thead>
+                    <tr>
+                        <th>Nguyên Nhân Khiển Trách</th>
+                        <th>Nội Dung Phân Tích</th>
+                        <th>Hậu Quả Đối Với Chánh Pháp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Tự ý giảng giải khi chưa thấu suốt</strong></td>
+                        <td>Chưa liễu tri sâu sắc lời Phật dạy nhưng đã vội vã đem giáo lý đi tranh luận và đại diện Tăng đoàn phát ngôn trước ngoại đạo.</td>
+                        <td>Làm biến dạng hình ảnh trí tuệ của Tăng đoàn.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Đơn phương, tuyệt đối hóa (Ekāṁsavāda)</strong></td>
+                        <td>Biến một câu hỏi phức tạp đòi hỏi phải phân tích đa chiều theo từng nhân duyên thành một câu trả lời duy nhất, tuyến tính.</td>
+                        <td>Bóp méo phương pháp phân tích chánh pháp của Như Lai.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Che lấp tính đa duyên của Nghiệp – Quả</strong></td>
+                        <td>Không thấy được 4 trường hợp thực tế: Có người làm ác đời sau sinh cõi lành (nhờ thiện nghiệp quá khứ/cận tử nghiệp); có người làm thiện đời sau sinh cõi dữ (do ác nghiệp quá khứ/cận tử nghiệp ác).</td>
+                        <td>Làm cho quần chúng hiểu lầm Phật giáo dạy định mệnh luận tiêu cực.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Gieo rắc hoài nghi & báng bổ Chánh pháp</strong></td>
+                        <td>Phát ngôn hời hợt khiến ngoại đạo khinh thường giáo lý Phật giáo, gây hoang mang cho người đang học đạo.</td>
+                        <td>Tổn hại danh dự Tam bảo và làm tổn thương niềm tin Chánh kiến.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">IV. Bài Học Rút Ra Về Học Pháp, Trách Nhiệm Phát Ngôn & Hoằng Pháp</h4>
+            <ul>
+                <li><strong>1. Thái độ học pháp:</strong> Học pháp phải cẩn trọng, toàn diện, tuyệt đối không "đoán mò" hay suy diễn từ hiện tượng cá biệt thành quy luật phổ quát. Giữ thái độ khiêm cung, biết rõ giới hạn sở tri của mình. Điều chưa thấu triệt thì không vội khẳng định hay tranh luận (như bài học bắt rắn trong MN 22).</li>
+                <li><strong>2. Trách nhiệm đối với lời nói (Chánh ngữ & Tứ trạch vấn):</strong> Phát ngôn phải dựa trên Chánh kiến. Phải phân biệt rõ loại câu hỏi: câu hỏi trả lời dứt khoát, câu hỏi cần phân tích, câu hỏi cần hỏi lại, hay câu hỏi cần giữ im lặng.</li>
+                <li><strong>3. Sự trung thực và cẩn trọng trong truyền đạt Chánh pháp:</strong> Người hoằng pháp không được bóp méo hay giản lược giáo lý theo ý đồ cá nhân hoặc sự suy diễn hạn hẹp. Thà im lặng thừa nhận <em>"tôi chưa học tới"</em> còn hơn phát ngôn bừa bãi làm tổn hại Chánh pháp.</li>
+            </ul>
+
+            <h4 class="section-title">V. Đúc Kết</h4>
+            <p>Lời khiển trách trong Đại kinh Nghiệp phân biệt (MN 136) xuất phát từ lòng từ bi và trách nhiệm bảo vệ Chánh pháp của Đức Phật. Đây là bài học cảnh tỉnh sâu sắc giúp người học Phật ngày nay luôn rèn luyện Chánh tri kiến, tinh thần cẩn trọng và trung thực để giữ ngọn đèn Chánh pháp luôn soi chiếu đúng chân lý.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 8')">❮ Trang trước (Câu 8)</button>
+            <button class="btn" onclick="alert('Hãy nhắn tiếp để mình làm Trang 10 (Câu 10) cuối cùng cho bạn nhé!')">Trang tiếp theo (Câu 10) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

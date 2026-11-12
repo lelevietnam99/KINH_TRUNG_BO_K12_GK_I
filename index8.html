@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 8: Câu 8</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+        }
+
+        /* Bảng lộ trình tu tập */
+        .path-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .path-table th, .path-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .path-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .path-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 8: TIẾN TRÌNH TU HỌC HƯỚNG ĐẾN GIÁC NGỘ VÀ GIẢI THOÁT</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Trong Kinh Trung Bộ, những bài kinh nào trình bày về tiến trình tu học hướng đến giác ngộ và giải thoát? Hãy lựa chọn một bài kinh tiêu biểu, trình bày những nội dung chính về lộ trình tu tập được Đức Phật giảng dạy và phân tích ý nghĩa của lộ trình ấy đối với đời sống tu học của người xuất gia.</p>
+            </div>
+
+            <h4 class="section-title">I. Các Bài Kinh Trình Bày Tiến Trình Tu Học Nổi Bật</h4>
+            <ul>
+                <li><strong>Tiểu kinh Dụ dấu chân voi (MN 27):</strong> Lộ trình tuần tự từ xuất gia đến chứng đắc; cảnh giác việc vội kết luận giác ngộ qua thành tựu trung gian.</li>
+                <li><strong>Đại kinh Xóm Ngựa (MN 39):</strong> Tiến trình toàn diện tạo nên Sa-môn hạnh từ Tàm Quý đến Tam minh, Lậu tận trí.</li>
+                <li><strong>Kinh Hữu học (MN 53):</strong> Tiến trình tu tập của bậc Hữu học, ví như gà mẹ ấp trứng đúng cách.</li>
+                <li><strong>Kinh Trạm xe (MN 24):</strong> Bảy giai đoạn thanh tịnh (Satta visuddhi), lấy Vô thủ trước Niết-bàn làm đích đến.</li>
+                <li><strong>Kinh Gaṇaka Moggallāna (MN 107):</strong> Huấn luyện tuần tự theo từng cấp độ, khẳng định Đức Phật là người chỉ đường.</li>
+            </ul>
+
+            <h4 class="section-title">II. Bài Kinh Tiêu Biểu: ĐẠI KINH XÓM NGỰA (MAHĀ-ASSAPURA SUTTA, MN 39)</h4>
+            <div class="quote-box">
+                "Sa-môn tính không nằm ở hình thức y áo hay cạo tóc, mà nằm ở phẩm chất đạo đức nội tâm và năng lực đoạn trừ phiền não qua một lộ trình tu tập nghiêm mật."
+            </div>
+            <p><strong>Bối cảnh:</strong> Tại thị trấn Assapura (Xóm Ngựa), xứ Anga. Đức Phật đặt câu hỏi về những pháp cần tu tập để xứng đáng với danh xưng Sa-môn và thọ nhận cúng dường mang lại phước báu lớn.</p>
+
+            <h4 class="section-title">III. Lộ Trình 9 Bước Tu Tập Tuần Tự (Giới – Định – Tuệ)</h4>
+            <table class="path-table">
+                <thead>
+                    <tr>
+                        <th>Bước</th>
+                        <th>Nội Dung Tu Tập</th>
+                        <th>Ý Nghĩa & Mục Tiêu Phân Giai Đoạn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Tàm & Quý (Hirī - Ottappa)</strong></td>
+                        <td>Biết hổ thẹn với lỗi lầm và sợ hãi quả báo bất thiện.</td>
+                        <td><strong>Nền tảng Giới:</strong> Hai pháp hộ trì thế gian, khởi đầu cho nhân cách người tu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tịnh hóa 3 nghiệp</strong></td>
+                        <td>Thân hành, khẩu hành, ý hành thanh tịnh, không buông lung, không chê người.</td>
+                        <td>Thiết lập nếp sống phạm hạnh chuẩn mực.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Chánh mạng</strong></td>
+                        <td>Mạng sống thanh tịnh, từ bỏ các nghề tà mạng (bói toán, lừa dối).</td>
+                        <td>Nuôi dưỡng thân mạng bằng phương tiện chân chính.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Hộ trì 6 căn</strong></td>
+                        <td>Mắt, tai, mũi, lưỡi, thân, ý tiếp xúc sáu trần không nắm giữ tướng chung/riêng.</td>
+                        <td>Ngăn ngừa tham ái và ưu bi khởi sinh.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Tiết độ ăn uống</strong></td>
+                        <td>Ăn uống có suy xét: chỉ để duy trì thân thể sống đời Phạm hạnh.</td>
+                        <td>Đoạn trừ cảm thọ cũ, không cho khởi sinh cảm thọ mới.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Chánh niệm tỉnh giác</strong></td>
+                        <td>Ngày đêm đi kinh hành, ngồi thiền; tỉnh giác trong mọi oai nghi.</td>
+                        <td>Thanh lọc tâm khỏi các chướng ngại ban đầu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Đoạn 5 triền cái</strong></td>
+                        <td>Đến trú xứ tịch tịnh, gột rửa 5 triền cái (Tham, Sân, Hôn trầm, Trạo hối, Nghi).</td>
+                        <td><strong>Nền tảng Định:</strong> Ví như thoát nợ, khỏi bệnh, ra khỏi tù, tự do.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. An trú Bốn thiền Sắc giới</strong></td>
+                        <td>Lần lượt nhập Sơ thiền, Nhị thiền, Tam thiền, Tứ thiền.</td>
+                        <td>Tâm nhu nhuyến, thuần tịnh, định tĩnh, không lay động.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9. Thành tựu Tam minh</strong></td>
+                        <td>Chứng Túc mạng minh, Thiên nhãn minh và Lậu tận minh (Tứ Thánh đế).</td>
+                        <td><strong>Nền tảng Tuệ:</strong> Chứng đắc giải thoát tối hậu: "Sanh đã tận, phạm hạnh đã thành...".</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">IV. Phân Tích Ý Nghĩa Của Lộ Trình Tu Tập</h4>
+            <ul>
+                <li><strong>Tính tuần tự, khoa học và thực nghiệm:</strong> Giác ngộ không phải là ngẫu nhiên huyền bí hay đốt cháy giai đoạn, mà là kết quả tất yếu của một chuỗi chuyển hóa liên tục. Cung cấp "bản đồ tu học" rõ ràng, tránh ảo tưởng chứng đắc.</li>
+                <li><strong>Mối liên hệ hữu cơ Giới – Định – Tuệ:</strong> Giới thanh tịnh tạo bệ phóng cho Định an trú; Định định tĩnh phát khởi Tuệ giải thoát. Tách rời Giới thì Định trở thành tà định và Tuệ chỉ là tri thức suông.</li>
+                <li><strong>Xác lập chuẩn mực Sa-môn chân chính:</strong> Đập tan xu hướng hình thức hóa đời sống tu hành; khẳng định giá trị thực sự nằm ở sự đoạn trừ phiền não nội tâm và trách nhiệm với đàn na tín thí.</li>
+                <li><strong>Định hướng lý tưởng thời hiện đại:</strong> Nhắc nhở người xuất gia duy trì nếp sống thiểu dục tri túc, bảo hộ các căn trước sự bùng nổ của tiện nghi và truyền thông số.</li>
+            </ul>
+
+            <h4 class="section-title">V. Đúc Kết</h4>
+            <p>Đại kinh Xóm Ngựa (MN 39) là bản cương lĩnh giáo dục mẫu mực. Lộ trình tu tập Giới – Định – Tuệ trong kinh mãi mãi là kim chỉ nam soi sáng lý tưởng giải thoát cho hàng đệ tử xuất gia qua mọi thời đại.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 7')">❮ Trang trước (Câu 7)</button>
+            <button class="btn" onclick="alert('Hãy nhắn tiếp để mình làm Trang 9 (Câu 9) cho bạn nhé!')">Trang tiếp theo (Câu 9) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

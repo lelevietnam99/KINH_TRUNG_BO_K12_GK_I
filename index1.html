@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 1: Câu 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+
+        .btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #64748b;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 1: TỔNG QUAN VỀ KINH TRUNG BỘ (MAJJHIMA NIKĀYA)</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Yêu cầu:</strong> Trình bày tổng quan về Kinh Trung Bộ bao gồm vị trí trong Kinh tạng Pāli, cấu trúc, số lượng bài kinh, nội dung giáo lý chủ yếu và giá trị đối với việc nghiên cứu, tu học Phật pháp.</p>
+            </div>
+
+            <h4 class="section-title">I. Vị Trí của Kinh Trung Bộ trong Kinh Tạng Pāli</h4>
+            <ul>
+                <li><strong>Trong hệ thống Tam tạng (Tipiṭaka):</strong> Là bộ kinh thứ hai trong 5 bộ Nikāya thuộc Kinh tạng (Sutta Piṭaka) của Phật giáo Thượng tọa bộ (Theravāda), đứng sau Trường Bộ (Dīgha Nikāya) và trước Tương Ưng Bộ, Tăng Chi Bộ, Tiểu Bộ.</li>
+                <li><strong>Ý nghĩa tên gọi:</strong> <em>Majjhima</em> nghĩa là "trung bình", "vừa phải". Tập hợp các bài kinh có độ dài trung bình.</li>
+                <li><strong>Tương đương Hán tạng:</strong> Kinh Trung A-hàm (Madhyama Āgama, 222 kinh thuộc Hữu bộ).</li>
+            </ul>
+
+            <h4 class="section-title">II. Cấu Trúc và Số Lượng Bài Kinh</h4>
+            <p>Toàn bộ Kinh Trung Bộ gồm <strong>152 bài kinh</strong>, chia thành 3 phần biên phần (<em>paṇṇāsa</em>) và 15 phẩm (<em>vagga</em>):</p>
+            <ul>
+                <li><strong>1. Phần Căn bản (Mūlapaṇṇāsa):</strong> 50 kinh đầu (5 phẩm, mỗi phẩm 10 kinh).</li>
+                <li><strong>2. Phần Giữa (Majjhimapaṇṇāsa):</strong> 50 kinh giữa (5 phẩm, mỗi phẩm 10 kinh).</li>
+                <li><strong>3. Phần Cuối (Uparipaṇṇāsa):</strong> 52 kinh cuối (5 phẩm).</li>
+            </ul>
+
+            <h4 class="section-title">III. Những Nội Dung Giáo Lý Chủ Yếu</h4>
+            <ul>
+                <li><strong>1. Giá trị đời người và đạo đức căn bản:</strong> Thân người khó được, Ngũ giới, Thập thiện nghiệp đạo (MN 129, MN 41).</li>
+                <li><strong>2. Hệ thống giáo lý Nghiệp báo (Kamma):</strong> Con người là chủ nhân và kẻ thừa tự của nghiệp (MN 135, MN 136, MN 57).</li>
+                <li><strong>3. Thực tại thân tâm & Bản thể chân lý:</strong> Năm thủ uẩn, Duyên khởi (12 nhân duyên), Tam pháp ấn (Vô thường – Khổ – Vô ngã), Tứ Thánh đế & Bát Chánh đạo (MN 109, MN 9, MN 148, MN 141).</li>
+                <li><strong>4. Lộ trình tu tập tuần tự (Anupubbasikkhā):</strong> Giới $\rightarrow$ Hộ trì các căn $\rightarrow$ Tiết độ ăn uống $\rightarrow$ Chú tâm tỉnh giác $\rightarrow$ Đoạn 5 triền cái $\rightarrow$ Bốn thiền $\rightarrow$ Thắng trí $\rightarrow$ Giải thoát. Mô hình 7 giai đoạn thanh tịnh (MN 27, MN 39, MN 24).</li>
+                <li><strong>5. Các tầng Thánh quả:</strong> Thứ đệ đoạn trừ kiết sử để chứng Dự lưu, Nhất lai, Bất lai, và A-la-hán (MN 6, MN 64).</li>
+            </ul>
+
+            <h4 class="section-title">IV. Giá Trị Đối Với Nghiên Cứu và Tu Học</h4>
+            <ul>
+                <li><strong>Về nghiên cứu:</strong> Tư liệu gốc chuẩn mực phản ánh bối cảnh xã hội, tôn giáo Ấn Độ thời Đức Phật; thể hiện phương pháp sư phạm sinh động, linh hoạt (ẩn dụ chiếc bè, người bắt rắn, con voi...) và tư duy phản biện bảo hộ chân lý (MN 95).</li>
+                <li><strong>Về tu học:</strong> Cẩm nang chuyển hóa tự thân toàn diện xoay quanh tư tưởng <em>"Con người và Con đường Chuyển hóa"</em>: Hòa hợp $\rightarrow$ Đạo đức $\rightarrow$ Phản tỉnh $\rightarrow$ Trách nhiệm $\rightarrow$ Chuyển hóa $\rightarrow$ Không chấp thủ.</li>
+            </ul>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn disabled">❮ Trang trước</button>
+            <button class="btn" onclick="alert('Hãy nhắn cho mình để bắt đầu tạo Trang 2 (Câu 2) nhé!')">Trang tiếp theo (Câu 2) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

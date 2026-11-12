@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 6: Câu 6</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+            text-align: center;
+        }
+
+        /* Bảng tóm tắt 5 bài kinh */
+        .sutta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .sutta-table th, .sutta-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sutta-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .sutta-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 6: KHÁI QUÁT NỘI DUNG 5 BÀI KINH TIÊU BIỂU VÀ GIÁ TRỊ THỰC TIỄN</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Lựa chọn 5 bài kinh đã học trong Kinh Trung Bộ (MN), ghi rõ tên từng bài kinh và trình bày khái quát nội dung giáo lý trọng tâm của mỗi bài. Qua đó, nhận xét về sự phong phú và giá trị thực tiễn của những lời dạy được Đức Phật trình bày trong các bài kinh ấy.</p>
+            </div>
+
+            <h4 class="section-title">I. Tuyển Chọn 5 Bài Kinh Tiêu Biểu</h4>
+            <p>Mạch tư tưởng xuyên suốt học phần:</p>
+            <div class="quote-box">
+                <strong>Hòa hợp $\rightarrow$ Đạo đức $\rightarrow$ Phản tỉnh $\rightarrow$ Trách nhiệm $\rightarrow$ Đối thoại $\rightarrow$ Chuyển hóa $\rightarrow$ Giải thoát</strong>
+            </div>
+
+            <h4 class="section-title">II. Tóm Tắt Giáo Lý Trọng Tâm 5 Bài Kinh</h4>
+            <table class="sutta-table">
+                <thead>
+                    <tr>
+                        <th>Tên Bài Kinh & Số Hiệu</th>
+                        <th>Bối Cảnh & Nhân Vật</th>
+                        <th>Giáo Lý Cốt Lõi & Trọng Tâm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Tiểu kinh Nghiệp phân biệt</strong><br>(Cūḷakammavibhaṅga Sutta, MN 135)</td>
+                        <td>Thanh niên Subha hỏi Phật tại Kỳ Viên về sự sai biệt giữa người với người.</td>
+                        <td><em>Nghiệp báo:</em> "Chúng sinh là chủ nhân của nghiệp, là thừa tự của nghiệp...". 7 cặp nghiệp nhân – nghiệp quả đối ứng khẳng định trách nhiệm đạo đức cá nhân.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tiểu kinh Rừng Sừng Bò</strong><br>(Cūḷagosiṅga Sutta, MN 31)</td>
+                        <td>Đức Phật thăm 3 Tỳ-kheo (Anuruddha, Nandiya, Kimbila) tại rừng Gosiṅga.</td>
+                        <td><em>Tăng đoàn hòa hợp:</em> Nếp sống hòa hợp "như nước với sữa", bỏ cái tôi riêng vì cái ta chung, tương trợ tế nhị, tiến tới Bát thiền và Diệt thọ tưởng định.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Kinh Aṅgulimāla</strong><br>(Aṅgulimāla Sutta, MN 86)</td>
+                        <td>Đức Phật dùng uy đức cảm hóa tướng cướp tàn bạo Aṅgulimāla.</td>
+                        <td><em>Khả năng chuyển hóa:</em> "Ta đã dừng lại, này Aṅgulimāla, còn ngươi chưa dừng lại!". Từ bạo lực $\rightarrow$ tỉnh thức $\rightarrow$ xuất gia chứng A-la-hán; hoan hỷ kham nhẫn trả nghiệp cũ.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Kinh Giáo giới La-hầu-la ở rừng Ambala</strong><br>(Ambalaṭṭhikarāhulovāda Sutta, MN 61)</td>
+                        <td>Đức Phật dạy Sa-di La-hầu-la (7 tuổi) tính trung thực và phản tỉnh.</td>
+                        <td><em>Chân thật & Phản tỉnh:</em> Quyết không nói láo để đùa chơi. Ẩn dụ chậu nước, con voi chiến và tấm gương soi. Phương pháp tự phản tỉnh 3 thời (Trước - Trong - Sau) đối với Thân - Khẩu - Ý.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Kinh Vương tử Vô Úy</strong><br>(Abhayarājakumāra Sutta, MN 58)</td>
+                        <td>Vương tử Abhaya đặt câu hỏi bẫy nhị nguyên về việc Phật nói lời người khác không thích.</td>
+                        <td><em>Chuẩn mực Chánh ngữ:</em> Ẩn dụ móc xương trong họng trẻ nhỏ. Bộ 3 tiêu chí: Chân thật – Lợi ích – Hợp thời. Lấy mục đích giáo hóa làm tiêu chuẩn phát ngôn tối thượng.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">III. Nhận Xét Về Sự Phong Phú Của Giáo Lý</h4>
+            <ul>
+                <li><strong>Đa dạng đối tượng giáo hóa:</strong> Đức Phật đối thoại với mọi tầng lớp — từ trí thức Bà-la-môn (Subha), hàng vương giả (Abhaya), đệ tử ẩn tu (nhóm Anuruddha), chú tiểu 7 tuổi (La-hầu-la) đến kẻ sát nhân hàng loạt (Aṅgulimāla).</li>
+                <li><strong>Phương pháp sư phạm linh hoạt (Khế lý & Khế cơ):</strong> Sử dụng hình ảnh ẩn dụ đời sống mộc mạc (chậu nước, con voi, móc xương cá, nước hòa với sữa) để diễn giải chân lý uyên áo.</li>
+                <li><strong>Nhiều tầng bậc giáo nghĩa:</strong> Bao hàm từ đạo đức nhân bản thế gian (ngũ giới, nghiệp báo), giao tiếp ứng xử (Chánh ngữ), kỹ năng cộng trú (Lục hòa) đến thiền định siêu thế.</li>
+            </ul>
+
+            <h4 class="section-title">IV. Giá Trị Thực Tiễn Đối Với Đời Sống Tu Học & Xã Hội</h4>
+            <ul>
+                <li><strong>Tự chịu trách nhiệm vận mệnh (MN 135):</strong> Phá vỡ tư tưởng định mệnh luận, mê tín cầu cạnh; xác quyết con người tự kiến tạo số phận qua việc đoạn ác tu thiện.</li>
+                <li><strong>Niềm tin vào sự phục thiện (MN 86):</strong> Ý nghĩa nhân đạo sâu sắc trong giáo dục; khẳng định lòng từ bi có sức mạnh chuyển hóa lớn hơn mọi bạo lực.</li>
+                <li><strong>Nghệ thuật đối thoại & Truyền thông nhân văn (MN 58, MN 61):</strong> Quy tắc ứng xử chuẩn mực (trung thực, lợi ích, đúng thời điểm) trong gia đình, học đường, công sở và mạng xã hội.</li>
+                <li><strong>Xây dựng cộng đồng hòa hợp (MN 31):</strong> Giải quyết các xung đột tập thể bằng tinh thần buông xả bản ngã và sống vì đại chúng.</li>
+            </ul>
+
+            <h4 class="section-title">V. Đúc Kết</h4>
+            <p>Năm bài kinh là những viên ngọc tiêu biểu phản ánh Kinh Trung Bộ không phải là triết học tư biện suông, mà chính là <strong>bản đồ huấn luyện con người toàn diện</strong>: biết sống hòa hợp, biết phản tỉnh tự thân, chịu trách nhiệm về hành vi và kiên trì chuyển hóa hướng đến an lạc giải thoát.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 5')">❮ Trang trước (Câu 5)</button>
+            <button class="btn" onclick="alert('Hãy nhắn tiếp để mình tạo Trang 7 (Câu 7) cho bạn nhé!')">Trang tiếp theo (Câu 7) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Mục Ôn Thi Kinh Trung Bộ - Khóa XII</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 45px 35px;
+            box-shadow: 0 0 40px rgba(0, 191, 255, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.08);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.35);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 2.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Lưới bài học */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 650px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Thẻ bài viết */
+        .card {
+            background: rgba(30, 41, 59, 0.65);
+            border: 1px solid rgba(79, 195, 247, 0.25);
+            border-radius: 12px;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #ffd700;
+            box-shadow: 0 8px 25px rgba(0, 191, 255, 0.25), 0 0 10px rgba(255, 215, 0, 0.3);
+            background: rgba(30, 41, 59, 0.85);
+        }
+
+        .card-number {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .card-title {
+            color: #4fc3f7;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            background: rgba(79, 195, 247, 0.15);
+            border: 1px solid #4fc3f7;
+            color: #4fc3f7;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>DANH MỤC ÔN THI GIỮA KỲ I - KHÓA XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+            <div class="subtitle">Hệ thống 10 câu hỏi ôn tập định dạng HTML giao diện Vũ Trụ</div>
+        </div>
+
+        <div class="grid-container">
+            <!-- Bài 1 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 1</span>
+                    <h3 class="card-title">Câu 1: Tổng Quan Về Kinh Trung Bộ</h3>
+                    <p class="card-desc">Vị trí trong Kinh tạng Pāli, cấu trúc 152 bài kinh, 5 phân mục giáo lý chủ yếu và giá trị đối với nghiên cứu, tu học.</p>
+                </div>
+                <a href="index1.html" class="card-link">Mở Trang 1 (index1.html) ➔</a>
+            </div>
+
+            <!-- Bài 2 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 2</span>
+                    <h3 class="card-title">Câu 2: Tiểu Kinh Nghiệp Phân Biệt (MN 135)</h3>
+                    <p class="card-desc">Tuyên ngôn căn bản về nghiệp, bảng phân tích 7 cặp Nghiệp nhân – Quả báo đối ứng và bài học tu dưỡng đạo đức.</p>
+                </div>
+                <a href="index2.html" class="card-link">Mở Trang 2 (index2.html) ➔</a>
+            </div>
+
+            <!-- Bài 3 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 3</span>
+                    <h3 class="card-title">Câu 3: Chuyên Đề Nghệ Thuật Lời Nói</h3>
+                    <p class="card-desc">Các nguyên tắc căn bản về lời nói, bộ tiêu chuẩn phát ngôn (MN 58, MN 61) và ứng dụng trong Tăng đoàn, xã hội, không gian mạng.</p>
+                </div>
+                <a href="index3.html" class="card-link">Mở Trang 3 (index3.html) ➔</a>
+            </div>
+
+            <!-- Bài 4 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 4</span>
+                    <h3 class="card-title">Câu 4: Kinh Giáo Giới La-Hầu-La (MN 61)</h3>
+                    <p class="card-desc">Lời dạy về tính trung thực, các ẩn dụ chậu nước, con voi chiến và phương pháp tự phản tỉnh 3 thời đối với Thân – Khẩu – Ý.</p>
+                </div>
+                <a href="index4.html" class="card-link">Mở Trang 4 (index4.html) ➔</a>
+            </div>
+
+            <!-- Bài 5 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 5</span>
+                    <h3 class="card-title">Câu 5: Tiểu Kinh Rừng Sừng Bò (MN 31)</h3>
+                    <p class="card-desc">3 trụ cột làm nên đời sống hòa hợp "như nước với sữa" của ba Tôn giả và bài học cho đời sống cộng trú Tăng đoàn hiện nay.</p>
+                </div>
+                <a href="index5.html" class="card-link">Mở Trang 5 (index5.html) ➔</a>
+            </div>
+
+            <!-- Bài 6 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 6</span>
+                    <h3 class="card-title">Câu 6: Khái Quát Nội Dung 5 Bài Kinh Tiêu Biểu</h3>
+                    <p class="card-desc">Tóm tắt giáo lý trọng tâm của 5 bài kinh tiêu biểu, mạch tư tưởng xuyên suốt và nhận xét về giá trị thực tiễn sâu sắc.</p>
+                </div>
+                <a href="index6.html" class="card-link">Mở Trang 6 (index6.html) ➔</a>
+            </div>
+
+            <!-- Bài 7 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 7</span>
+                    <h3 class="card-title">Câu 7: Phẩm Chất Cao Quý Của Đức Phật</h3>
+                    <p class="card-desc">Phân tích phẩm chất Đức Phật qua cuộc đời, đạo nghiệp, trí tuệ, lòng từ bi, phương pháp giáo hóa và ý nghĩa tu dưỡng, phụng sự.</p>
+                </div>
+                <a href="index7.html" class="card-link">Mở Trang 7 (index7.html) ➔</a>
+            </div>
+
+            <!-- Bài 8 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 8</span>
+                    <h3 class="card-title">Câu 8: Tiến Trình Tu Học Giải Thoát (MN 39)</h3>
+                    <p class="card-desc">Lộ trình 9 bước tu tập tuần tự (Giới – Định – Tuệ) trong Đại kinh Xóm Ngựa và ý nghĩa đối với đời sống người xuất gia.</p>
+                </div>
+                <a href="index8.html" class="card-link">Mở Trang 8 (index8.html) ➔</a>
+            </div>
+
+            <!-- Bài 9 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 9</span>
+                    <h3 class="card-title">Câu 9: Trường Hợp Khiển Trách Sai Lệch Giáo Pháp</h3>
+                    <p class="card-desc">Phân tích trường hợp Tôn giả Samiddhi (MN 136) phát ngôn sai lệch và bài học cẩn trọng trong học pháp, truyền đạt Chánh pháp.</p>
+                </div>
+                <a href="index9.html" class="card-link">Mở Trang 9 (index9.html) ➔</a>
+            </div>
+
+            <!-- Bài 10 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">TRANG 10</span>
+                    <h3 class="card-title">Câu 10: Kinh Vương Tử Vô Úy (MN 58)</h3>
+                    <p class="card-desc">Ma trận 6 trường hợp phát ngôn, mối quan hệ Chân thật – Lợi ích – Cảm nhận – Hợp thời và thực hành Chánh ngữ thời đại số.</p>
+                </div>
+                <a href="index10.html" class="card-link">Mở Trang 10 (index10.html) ➔</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Chúc bạn ôn tập hiệu quả và đạt kết quả cao nhất trong kỳ thi môn Kinh Trung Bộ!</p>
+        </div>
+    </div>
+</body>
+</html>

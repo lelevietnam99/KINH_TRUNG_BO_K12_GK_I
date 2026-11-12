@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 3: Câu 3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+        }
+
+        /* Bảng tiêu chuẩn phát ngôn */
+        .speech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .speech-table th, .speech-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .speech-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .speech-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 3: CHUYÊN ĐỀ “NGHỆ THUẬT SỬ DỤNG LỜI NÓI TRONG KINH TRUNG BỘ”</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Phân tích những nguyên tắc căn bản về lời nói được Đức Phật giảng dạy. Từ đó, liên hệ và vận dụng những nguyên tắc ấy vào việc giao tiếp, ứng xử và xây dựng đời sống hòa hợp trong Tăng đoàn cũng như ngoài xã hội.</p>
+            </div>
+
+            <h4 class="section-title">I. Đặt Vấn Đề</h4>
+            <p>Ngôn ngữ vừa là phương tiện truyền thông gắn kết, vừa có thể trở thành "binh khí miệng lưỡi" gây sát thương và chia rẽ. Chuyên đề nghệ thuật lời nói trong Kinh Trung Bộ phản ánh tuệ giác và lòng từ bi của Đức Phật (tiêu biểu qua các kinh: <em>Ví dụ cái cưa - MN 21, Vương tử Vô Úy - MN 58, Giáo giới La-hầu-la - MN 61, Đại kinh Bốn mươi - MN 117...</em>).</p>
+
+            <h4 class="section-title">II. Các Nguyên Tắc Căn Bản Về Lời Nói</h4>
+            <ul>
+                <li><strong>1. Đạo đức căn bản (Trừ 4 ác nghiệp - MN 41):</strong> Từ bỏ vọng ngôn (nói láo), lưỡng thiệt (chia rẽ), ác khẩu (thô bạo), ỷ ngữ (phù phiếm); thành tựu 4 thiện hạnh (chân thật, hòa giải, nhu hòa ái ngữ, đúng thời/thuận lý).</li>
+                <li><strong>2. Nguyên tắc chân lý tuyệt đối (MN 61):</strong> Quyết không nói láo, dù chỉ để đùa chơi. Cảnh báo qua ẩn dụ chậu nước và con voi chiến thí mạng: kẻ không biết tàm quý (hổ thẹn) thì không có ác nghiệp nào không dám làm.</li>
+                <li><strong>3. Bộ tiêu chuẩn phát ngôn (MN 58):</strong> Kết hợp 3 yếu tố: <em>Chân thật – Lợi ích – Hợp thời</em>. Lấy mục đích giáo hóa và tính lợi ích tâm linh làm tiêu chuẩn tối thượng.</li>
+                <li><strong>4. Tâm thế đối thoại và Nhẫn nhục (MN 21):</strong> Duy trì 5 tiêu chuẩn phát ngôn (đúng thời, chân thật, nhu nhuyến, lợi ích, từ tâm). Thực hành hạnh nhẫn nhục, dù bị mạ lị vẫn giữ tâm từ biến mãn.</li>
+                <li><strong>5. Phản tỉnh nội tâm (MN 61):</strong> Quán chiếu ba thời (Trước - Trong - Sau khi nói). Nếu phát hiện sai lầm, dũng cảm phát lộ sám hối để tịnh hóa thân khẩu ý.</li>
+            </ul>
+
+            <h4 class="section-title">III. Bảng Tóm Tắt 6 Trường Hợp Phát Ngôn (MN 58)</h4>
+            <table class="speech-table">
+                <thead>
+                    <tr>
+                        <th>Chân Thật</th>
+                        <th>Lợi Ích</th>
+                        <th>Cảm Nhận Người Nghe</th>
+                        <th>Hành Động Của Đức Phật</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Không</td>
+                        <td>Không</td>
+                        <td>Không ưa thích</td>
+                        <td><strong>KHÔNG NÓI</strong> (Lời vu khống, phỉ báng)</td>
+                    </tr>
+                    <tr>
+                        <td>Không</td>
+                        <td>Không</td>
+                        <td>Ưa thích</td>
+                        <td><strong>KHÔNG NÓI</strong> (Lời nịnh hót, giả dối)</td>
+                    </tr>
+                    <tr>
+                        <td>Có</td>
+                        <td>Không</td>
+                        <td>Không ưa thích</td>
+                        <td><strong>KHÔNG NÓI</strong> (Sự thật vô bổ, gây hận thù)</td>
+                    </tr>
+                    <tr>
+                        <td>Có</td>
+                        <td>Không</td>
+                        <td>Ưa thích</td>
+                        <td><strong>KHÔNG NÓI</strong> (Chuyện tào lao, hí luận)</td>
+                    </tr>
+                    <tr>
+                        <td>Có</td>
+                        <td><strong>Có</strong></td>
+                        <td>Không ưa thích</td>
+                        <td><strong>SẼ NÓI (Biết thời)</strong> (Lời quở trách giúp thức tỉnh)</td>
+                    </tr>
+                    <tr>
+                        <td>Có</td>
+                        <td><strong>Có</strong></td>
+                        <td>Ưa thích</td>
+                        <td><strong>SẼ NÓI (Biết thời)</strong> (Lời khuyến tấn, chánh pháp)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">IV. Liên Hệ Vận Dụng Thực Tiễn</h4>
+            <ul>
+                <li><strong>Trong Tăng đoàn (Cộng trú):</strong> Thực hành Lục hòa (Khẩu hòa vô tránh), ái ngữ, góp ý xây dựng chân thành đúng lễ Tự tứ; tránh bàn chuyện thế sự, thị phi.</li>
+                <li><strong>Ngoài xã hội & Công sở:</strong> Không gian lận, trục lợi qua lời nói; tránh mỉa mai, chỉ trích; biết khen ngợi chân thành và khuyên bảo đúng lúc.</li>
+                <li><strong>Không gian mạng (Thời đại số):</strong> Xem việc gõ phím/bình luận là khẩu hành; tuyệt đối không lan truyền tin giả, không tham gia bạo lực mạng hay bắt nạt hội đồng (cyberbullying).</li>
+            </ul>
+
+            <h4 class="section-title">V. Đúc Kết</h4>
+            <p>Nghệ thuật lời nói trong Phật giáo là sự dung hợp hoàn hảo giữa <strong>Trí tuệ</strong> và <strong>Từ bi</strong>. Tu khẩu chính là tu tâm, là chìa khóa hóa giải xung đột và xây dựng đời sống an lạc.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 2')">❮ Trang trước (Câu 2)</button>
+            <button class="btn" onclick="alert('Hãy nhắn tiếp để mình làm Trang 4 (Câu 4) cho bạn nhé!')">Trang tiếp theo (Câu 4) ❯</button>
+        </div>
+    </div>
+</body>
+</html>

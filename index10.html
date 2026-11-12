@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Kinh Trung Bộ - Trang 10: Câu 10</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e6ed;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền vũ trụ & sao */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            z-index: 1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15), inset 0 0 15px rgba(255, 215, 0, 0.05);
+        }
+
+        /* Tiêu đề */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .header h2 {
+            color: #4fc3f7;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Nội dung bài học */
+        .section-title {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #4fc3f7;
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .quote-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+        }
+
+        /* Bảng ma trận 6 trường hợp */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .matrix-table th {
+            background: rgba(79, 195, 247, 0.25);
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .matrix-table tr:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        /* Thanh điều hướng */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #4fc3f7;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #4fc3f7;
+            color: #090a0f;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+
+        .btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #64748b;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ôn Thi Giữa Kỳ I - Khóa XII</h1>
+            <h2>Môn: Kinh Trung Bộ (Majjhima Nikāya)</h2>
+        </div>
+
+        <div class="content">
+            <h3 class="section-title">CÂU 10: KINH VƯƠNG TỬ VÔ ÚY (ABHAYARĀJAKUMĀRASUTTA, MN 58)</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Đề bài:</strong> Phân tích những nguyên tắc sử dụng lời nói được Đức Phật giảng dạy trong Kinh Vương tử Vô Úy (MN 58). Làm rõ mối quan hệ giữa tính chân thật, lợi ích, sự thích hợp và thời điểm phát ngôn trong phương pháp giáo hóa của Đức Phật. Từ đó, liên hệ việc thực hành chánh ngữ trong đời sống tu học và giao tiếp xã hội hiện nay.</p>
+            </div>
+
+            <h4 class="section-title">I. Bối Cảnh & Bẫy Nhị Nguyên Của Ngoại Đạo</h4>
+            <ul>
+                <li><strong>Địa điểm:</strong> Tu viện Trúc Lâm (Veḷuvana), thành Vương Xá (Rājagaha).</li>
+                <li><strong>Duyên khởi:</strong> Vương tử Abhaya (đệ tử của Nigaṇṭha Nātaputta) được hướng dẫn đặt câu hỏi gài bẫy nhị nguyên: <em>"Như Lai có bao giờ nói lời khiến người khác không ưa thích, khó chịu hay không?"</em> (Nếu trả lời "Có" thì giống phàm phu sân hận; trả lời "Không" thì mâu thuẫn với việc từng quở trách Đề-bà-đạt-đa hay học trò sai phạm).</li>
+                <li><strong>Ẩn dụ đứa trẻ nuốt xương/dằm:</strong> Đứa bé sơ sinh vô tình nuốt mảnh dằm nhọn; người cha vì thương con phải dùng ngón tay banh miệng móc ra làm bé đau và chảy máu. Hành động làm đau xuất phát hoàn toàn từ <strong>lòng từ bi thương tưởng (anukampā)</strong> và <strong>mục đích cứu mạng</strong>. Tương tự, lời quở trách nghiêm khắc của Như Lai là nhằm cứu vớt sinh mạng tâm linh của đệ tử.</li>
+            </ul>
+
+            <h4 class="section-title">II. Ma Trận 6 Trường Hợp Phát Ngôn Của Đức Thế Tôn</h4>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tính Chân Thật</th>
+                        <th>Tính Lợi Ích</th>
+                        <th>Cảm Nhận Người Nghe</th>
+                        <th>Thái Độ Phát Ngôn Của Như Lai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Không chân thật</td>
+                        <td>Không lợi ích</td>
+                        <td>Không ưa thích (Khó nghe)</td>
+                        <td><strong>KHÔNG NÓI</strong> (Lời phỉ báng, bịa đặt, độc hại)</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Không chân thật</td>
+                        <td>Không lợi ích</td>
+                        <td>Ưa thích (Dễ nghe)</td>
+                        <td><strong>KHÔNG NÓI</strong> (Lời xu nịnh, tâng bốc giả dối)</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Chân thật</td>
+                        <td>Không lợi ích</td>
+                        <td>Không ưa thích (Khó nghe)</td>
+                        <td><strong>KHÔNG NÓI</strong> (Sự thật vô bổ, chỉ gây hận thù)</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Chân thật</td>
+                        <td>Không lợi ích</td>
+                        <td>Ưa thích (Dễ nghe)</td>
+                        <td><strong>KHÔNG NÓI</strong> (Tán chuyện phiếm, hí luận tào lao)</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Chân thật</td>
+                        <td><strong>Có lợi ích</strong></td>
+                        <td>Không ưa thích (Khó nghe)</td>
+                        <td><strong>SẼ NÓI (Biết thời)</strong> (Lời quở trách chân thành cảnh tỉnh)</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Chân thật</td>
+                        <td><strong>Có lợi ích</strong></td>
+                        <td>Ưa thích (Dễ nghe)</td>
+                        <td><strong>SẼ NÓI (Biết thời)</strong> (Lời khuyến tấn, nâng đỡ Chánh pháp)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="section-title">III. Mối Quan Hệ Giữa Chân Thật – Lợi Ích – Cảm Nhận – Hợp Thời</h4>
+            <ul>
+                <li><strong>Tính Chân thật (Sacca) – Điều kiện cần:</strong> Lời nói phải phản ánh đúng thực tế khách quan; dứt khoát không dung túng cho lời hư dối (loại trừ trường hợp 1 & 2).</li>
+                <li><strong>Tính Lợi ích (Attha) – Điều kiện đủ & Quyết định tối thượng:</strong> Nói đúng sự thật thôi chưa đủ; nếu không đưa đến ly tham, tịch tịnh, đoạn trừ phiền não thì vẫn không nói (loại trừ trường hợp 3 & 4). Lợi ích tâm linh là thước đo cao nhất.</li>
+                <li><strong>Sự Thích hợp / Cảm nhận (Priya/Apriya) – Yếu tố phụ thuộc:</strong> Tâm lý người nghe thích hay không không phải là tiêu chuẩn chân lý. Đức Phật không lấy sự hài lòng thế tục làm thước đo, sẵn sàng nói lời phật ý nếu mang lại lợi ích chuyển hóa thực sự.</li>
+                <li><strong>Thời điểm phát ngôn (Kāla) – Chìa khóa nghệ thuật giáo hóa:</strong> Với lời chân thật và có lợi ích (TH 5 & 6), Như Lai luôn <em>"biết thời mà nói" (kāluppādina)</em>. Đúng sự thật nhưng sai thời điểm sẽ biến thiện ý thành xung đột. Trí tuệ soi đường cho Từ bi thông qua việc chọn đúng thời điểm.</li>
+            </ul>
+
+            <h4 class="section-title">IV. Liên Hệ Thực Hành Chánh Ngữ Trong Đời Sống Hiện Nay</h4>
+            <ul>
+                <li><strong>Trong đời sống tu học & Tăng đoàn:</strong> Cử tội, góp ý xây dựng trên tinh thần Chánh ngữ (nói thật, tâm từ, đúng thời, với mục đích xây dựng); thực hành Lục hòa (Khẩu hòa vô tránh); dẹp bỏ hí luận thế sự.</li>
+                <li><strong>Trong giao tiếp xã hội & Công sở:</strong> Không ngụy biện "tính tôi thẳng thắn" để phát ngôn bừa bãi tổn thương người khác khi lời nói không có lợi ích; kiên quyết loại trừ thói xu nịnh giả tạo; ứng xử gia đình với tâm thương xót, tránh bạo lực ngôn từ.</li>
+                <li><strong>Đạo đức phát ngôn trên không gian mạng:</strong> Tuyệt đối không tạo/chia sẻ tin giả (Chân thật); không lan truyền tin giật gân, bới móc đời tư độc hại (Lợi ích); rèn thói quen tự phản tỉnh trước khi bình luận: <em>"Thật không? – Có lợi ích không? – Đã đúng thời chưa?"</em> để tránh bạo lực mạng (cyberbullying).</li>
+            </ul>
+
+            <h4 class="section-title">V. Đúc Kết</h4>
+            <p>Kinh Vương tử Vô Úy (MN 58) là mẫu mực của nghệ thuật giao tiếp Phật giáo, nơi Trí tuệ nhận diện chân lý song hành cùng Lòng từ bi cứu khổ. Ma trận tiêu chí lời nói là cẩm nang ứng xử nhân văn giúp kiến tạo một môi trường giao tiếp an lạc, hòa hợp trong xã hội hiện đại.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" onclick="alert('Quay lại Trang 9')">❮ Trang trước (Câu 9)</button>
+            <button class="btn disabled" onclick="alert('Chúc mừng bạn đã hoàn thành bộ 10 trang ôn thi Kinh Trung Bộ!')">Hoàn thành 10 Trang 🎉</button>
+        </div>
+    </div>
+</body>
+</html>
